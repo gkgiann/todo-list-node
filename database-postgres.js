@@ -12,13 +12,13 @@ export class DatabasePostgres {
     const taskId = randomUUID();
     const { text } = task;
 
-    await sql`INSERT INTO tasks (id, task_text) VALUES (${taskId}, ${text});`;
+    await sql`INSERT INTO tasks (id, text) VALUES (${taskId}, ${text});`;
   }
 
   async update(id, task) {
     const { text, isCompleted } = task;
 
-    await sql`UPDATE tasks SET task_text = ${text}, is_complete = ${isCompleted} WHERE id = ${id};`;
+    await sql`UPDATE tasks SET text = ${text}, is_completed = ${isCompleted} WHERE id = ${id};`;
   }
 
   async delete(id) {
