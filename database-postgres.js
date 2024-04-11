@@ -13,6 +13,12 @@ export class DatabasePostgres {
     const { text } = task;
 
     await sql`INSERT INTO tasks (id, text) VALUES (${taskId}, ${text});`;
+
+    return {
+      text,
+      id: taskId,
+      isCompleted: false,
+    };
   }
 
   async update(id, task) {

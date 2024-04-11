@@ -15,9 +15,9 @@ server.post("/tasks", async (req, res) => {
     text,
   };
 
-  await database.create(task);
+  const taskCreated = await database.create(task);
 
-  return res.status(201).send();
+  return taskCreated;
 });
 
 // BUSCANDO TAREFA
